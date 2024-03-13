@@ -3,26 +3,26 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 const app = express();
-const port = process.env.PORT
 dotenv.config();
+const Port = process.env.PORT ; // Default to 3000 if PORT is not defined in the environment
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('hello haris!');
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGO_URI);
     console.log('DATABASE CONNECTED');
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
+
 connectDB().then(() => {
-  app.listen(process.env.PORT)
+  app.listen(Port, () => {
+    console.log(`Example app listening on port ${Port}`);
+  });
 }).catch((err) => {
-  console.log(err)
-})
+  console.error(err);
+});
