@@ -7,7 +7,7 @@ dotenv.config();
 const Port = process.env.PORT ; // Default to 3000 if PORT is not defined in the environment
 
 app.get('/', (req, res) => {
-  res.send('hello haris!');
+  res.send('hello world!');
 });
 
 const connectDB = async () => {
