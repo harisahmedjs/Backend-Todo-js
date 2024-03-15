@@ -25,4 +25,4 @@ connectDB().then(() => {
   });
 }).catch((err) => {
   console.error(err);
-});
+}); 
