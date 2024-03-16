@@ -1,14 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import data from './routes/data.mjs'
 
 const app = express();
 dotenv.config();
 const Port = process.env.PORT ; // Default to 3000 if PORT is not defined in the environment
 
-app.get('/', (req, res) => {
-  res.send('hello world!');
-});
+// Middleware
+app.use(express.json());
+app.use('/api/todos', data);
 
 const connectDB = async () => {
   try {
