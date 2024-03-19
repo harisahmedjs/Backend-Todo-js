@@ -6,11 +6,9 @@ import cors from 'cors'
 
 const app = express();
 dotenv.config();
-const Port = process.env.PORT ; // Default to 3000 if PORT is not defined in the environment
+const Port = process.env.PORT ;
 
-app.use(cors({
-  origin: 'http://localhost:5173'
-}));
+app.use(cors())
 // Middleware
 app.use(express.json());
 
